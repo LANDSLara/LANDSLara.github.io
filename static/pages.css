@@ -1,0 +1,175 @@
+*,
+*:before,
+*:after {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* General */
+body, html {
+  height: 100%;
+  background-color: var(--white);
+  color: var(--red);
+  font-family: Hershey;
+  padding: var(--padding);
+}
+
+:root {
+  --default-size: 18px;
+  --title-size: 70px;
+  --title-size-curved: 38px;
+  --padding: 35px;
+  --white: #f2f2f2;
+  --red: red;
+  --pink: #FFC0CB;
+}
+
+body * {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: Hershey;
+  src: url(../fonts/Hershey-Noailles-Times-Triplex-Bold.otf);
+}
+
+@font-face {
+  font-family: HersheyReg;
+  src: url(../fonts/Hershey-Noailles-Times-Triplex-Regular.otf);
+}
+
+@font-face {
+  font-family: cmuBold;
+  src: url(../fonts/cmunobx.ttf);
+}
+
+@font-face {
+  font-family: Authentic;
+  src: url(../fonts/AUTHENTICSans-Condensed-150.otf);
+}
+
+@font-face {
+  font-family: Louise;
+  src: url(../fonts/Louise-Regular.otf);
+}
+
+@font-face {
+  font-family: Spotty;
+  src: url(../fonts/K22SpottyFace.woff2);
+}
+
+/* Element-specific styling*/
+a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 40px;
+}
+
+/* Page 1 */
+
+.exit {
+  position: absolute;
+  right: 45px;
+  z-index: 100;
+}
+
+.titlePage {
+  font-size: 60px;
+  text-transform: uppercase;
+  padding-bottom: 15px;
+  text-align: center;
+}
+
+.textBox h1 {
+  text-transform: uppercase;
+  padding-bottom: 15px;
+  text-align: center;
+}
+
+.textBox p {
+  padding-bottom: var(--padding);
+  font-size: var(--default-size);
+}
+
+path {
+  fill: transparent;
+}
+
+text {
+  font-family: Hershey;
+  font-size: var(--title-size-curved);
+  line-height: 100%;
+  fill: red;
+}
+
+svg {
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0%;
+}
+
+.header {
+  height: 50vh;
+}
+
+.textBox {
+  padding-top: 100px;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: var(--padding);
+}
+
+/* Page 3 */
+.grid-columns {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: var(--padding);
+}
+
+.filter {
+  height: 500px;
+  position: relative;
+}
+
+img {
+  width: 90%;
+  max-height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.filter img {
+  filter: contrast(1.2) grayscale(1) hue-rotate(-42deg) saturate(0.88) sepia(0.38);
+  height: 500px;
+}
+
+.filter:after {
+  position: absolute;
+  content: '';
+  display: block;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 90%;
+  background: linear-gradient(to left, rgba(255, 0, 0, 1) 0%, rgba(255, 0, 0, 1) 100%);
+  mix-blend-mode: screen;
+}
+
+#title-3 {
+  font-family: Spotty;
+  font-size: 40px;
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+
+p {
+  font-size: var(--default-size);
+  padding-top: 10px;
+}
+
+.underline {
+  text-decoration: underline;
+}
