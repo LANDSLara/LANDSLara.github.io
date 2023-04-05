@@ -4,7 +4,7 @@ window.addEventListener("load", function () {
     console.log(window.innerWidth);
 
     //create an array of random colors
-    let highlight_colours = ["#BFA7E8", "#3B6D56", "#FC5D00", "#0062FE", "#62411F", "#818D71", "#c49793", "#b59e69", "#6992b3"];
+    let highlight_colours = ["#9b88bd", "#3c6954", "#d9580d", "#1557c2", "#62411F", "#818D71", "#91716e", "#6992b3", "#707546"];
 
     //generate a ranom number according to the number of colors in the array (0 - (arraycount))
     let randomcolor = Math.floor(Math.random() * highlight_colours.length);
@@ -226,28 +226,92 @@ window.addEventListener("load", function () {
         })
     })
 
-    let wordlimit = 20;
-    let largerwordlimit = 50;
+
 
     //add (...) if descriptionsentence is longer that 50 words
+    // document.querySelectorAll(".thesisWrapper").forEach(function (thesisWrappers) {
+    //     window.addEventListener("resize", function () {
+    //         if (!mobile) {
+    //             if (window.innerWidth < 850) {
+    //                 console.log("smaller than 850")
+    //                 if (thesisWrappers.textContent.split(" ").length > wordlimit - 1) {
+    //                     thesisWrappers.textContent = thesisWrappers.textContent.split(/\s+/).slice(0, wordlimit).join(" ") + " (...)";
+    //                 }
+    //             } else if (window.innerWidth > 850) {
+    //                 console.log("bigger than 850")
+    //                 if (thesisWrappers.textContent.split(" ").length > largerwordlimit - 1) {
+    //                     thesisWrappers.textContent = thesisWrappers.textContent.split(/\s+/).slice(0, largerwordlimit).join(" ") + " (...)";
+    //                 }
+    //             }
+    //         }
+    //     })
+    // })
+
+
     document.querySelectorAll(".thesisWrapper").forEach(function (thesisWrappers) {
+            
+        const fullText = thesisWrappers.textContent.trim();
+        let wordlimit = 20;
+        let largerwordlimit = 60;
+
         window.addEventListener("resize", function () {
-            if (!mobile) {
-                if (window.innerWidth < 850) {
-                    console.log("smaller than 850")
+
+            //If the window is smaller than 607, remove all content after finding the second occurence of this character "•"
+            if (window.innerWidth < 607) {
+                console.log("window is small")
+                var cuttingChar = "•";
+                var firstCuttingIndex = thesisWrappers.textContent.indexOf(cuttingChar);
+                var secondCuttingIndex = thesisWrappers.textContent.indexOf(cuttingChar, firstCuttingIndex + 1);
+                if (secondCuttingIndex !== -1) {
+                    thesisWrappers.textContent = thesisWrappers.textContent.substring(0, secondCuttingIndex);
+                }
+            }
+
+            //If the window is between 608 and 849
+            if (window.innerWidth > 608 && window.innerWidth < 849) {
+
+                console.log("window is medium")
+
+                //If thesisWrappers contains more items than wordlimit, truncate it at wordlimit
+                if (thesisWrappers.textContent.split(" ").length > wordlimit - 1) {
+                    thesisWrappers.textContent = thesisWrappers.textContent.split(/\s+/).slice(0, wordlimit).join(" ") + " (...)";
+                }
+
+                //If thesisWrappers.textContent has already been truncated, reset it back to its orginal value, and then cut it at wordlimit
+                else if (thesisWrappers.textContent !== fullText) {
+                    thesisWrappers.textContent = fullText;
                     if (thesisWrappers.textContent.split(" ").length > wordlimit - 1) {
                         thesisWrappers.textContent = thesisWrappers.textContent.split(/\s+/).slice(0, wordlimit).join(" ") + " (...)";
                     }
-                } else if (window.innerWidth > 850) {
-                    console.log("bigger than 850")
+                }
+            }
+        
+            //If the window is bigger than 850
+            if (window.innerWidth > 850) {
+
+                console.log("window is big")
+
+                //If thesisWrappers contains more items than wordlimit, truncate it at largerwordlimit
+                if (thesisWrappers.textContent.split(" ").length > largerwordlimit - 1) {
+                    thesisWrappers.textContent = thesisWrappers.textContent.split(/\s+/).slice(0, largerwordlimit).join(" ") + " (...)";
+                }
+                
+                //If thesisWrappers.textContent has already been truncated, reset it back to its orginal value, and then cut it at largerwordlimit
+                else if (thesisWrappers.textContent !== fullText) {
+                    thesisWrappers.textContent = fullText;
                     if (thesisWrappers.textContent.split(" ").length > largerwordlimit - 1) {
                         thesisWrappers.textContent = thesisWrappers.textContent.split(/\s+/).slice(0, largerwordlimit).join(" ") + " (...)";
                     }
                 }
-            }
-        })
-    })
 
+
+
+
+            }
+          
+        })
+      })
+      
     
 
 

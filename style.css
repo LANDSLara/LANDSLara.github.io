@@ -267,6 +267,10 @@ li.clickHighlighted {
         margin-left:10px;
     }
 
+    .kabk{
+        padding-right:10px;
+    }
+
 
 
 }
@@ -362,18 +366,23 @@ li.clickHighlighted {
     }
 
     li {
-        color:#ccc;
-   
+        color:var(--main-font-color);
+        opacity:0.5;
     }
 
     li span {
         background-color: transparent;
-        color:#ccc;
     }
 
     li span:hover  {
         background-color: transparent;
         color:var(--main-highlight-color);
+        opacity:1;
+    }
+
+    li.clickHighlighted {
+        background-color:transparent;
+        opacity:1;
     }
 
     .creatorInfo {

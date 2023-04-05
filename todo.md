@@ -9,10 +9,11 @@ STRUCTURE
 - fix hovering thing mobile > desktop and vice versa
 - fix resize small to big
 - fix hover/select list
+- click after resize
 
 
 
 CONTENT
 - implement right keywords
-- selectirs title and names
+- selectors title and names
 
