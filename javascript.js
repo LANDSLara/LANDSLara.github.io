@@ -248,69 +248,69 @@ window.addEventListener("load", function () {
     // })
 
 
-    document.querySelectorAll(".thesisWrapper").forEach(function (thesisWrappers) {
+    // document.querySelectorAll(".thesisWrapper").forEach(function (thesisWrappers) {
             
-        const fullText = thesisWrappers.textContent.trim();
-        let wordlimit = 20;
-        let largerwordlimit = 60;
+    //     const fullText = thesisWrappers.textContent.trim();
+    //     let wordlimit = 20;
+    //     let largerwordlimit = 15;
 
-        window.addEventListener("resize", function () {
+    //     window.addEventListener("resize", function () {
 
-            //If the window is smaller than 607, remove all content after finding the second occurence of this character "•"
-            if (window.innerWidth < 607) {
-                console.log("window is small")
-                var cuttingChar = "•";
-                var firstCuttingIndex = thesisWrappers.textContent.indexOf(cuttingChar);
-                var secondCuttingIndex = thesisWrappers.textContent.indexOf(cuttingChar, firstCuttingIndex + 1);
-                if (secondCuttingIndex !== -1) {
-                    thesisWrappers.textContent = thesisWrappers.textContent.substring(0, secondCuttingIndex);
-                }
-            }
+    //         //If the window is smaller than 607, remove all content after finding the second occurence of this character "•"
+    //         if (window.innerWidth < 607) {
+    //             console.log("window is small")
+    //             var cuttingChar = "•";
+    //             var firstCuttingIndex = thesisWrappers.textContent.indexOf(cuttingChar);
+    //             var secondCuttingIndex = thesisWrappers.textContent.indexOf(cuttingChar, firstCuttingIndex + 1);
+    //             if (secondCuttingIndex !== -1) {
+    //                 thesisWrappers.textContent = thesisWrappers.textContent.substring(0, secondCuttingIndex);
+    //             }
+    //         }
 
-            //If the window is between 608 and 849
-            if (window.innerWidth > 608 && window.innerWidth < 849) {
+    //         //If the window is between 608 and 849
+    //         if (window.innerWidth > 608 && window.innerWidth < 849) {
 
-                console.log("window is medium")
+    //             console.log("window is medium")
 
-                //If thesisWrappers contains more items than wordlimit, truncate it at wordlimit
-                if (thesisWrappers.textContent.split(" ").length > wordlimit - 1) {
-                    thesisWrappers.textContent = thesisWrappers.textContent.split(/\s+/).slice(0, wordlimit).join(" ") + " (...)";
-                }
+    //             //If thesisWrappers contains more items than wordlimit, truncate it at wordlimit
+    //             if (thesisWrappers.textContent.split(" ").length > wordlimit - 1) {
+    //                 thesisWrappers.textContent = thesisWrappers.textContent.split(/\s+/).slice(0, wordlimit).join(" ") + " (...)";
+    //             }
 
-                //If thesisWrappers.textContent has already been truncated, reset it back to its orginal value, and then cut it at wordlimit
-                else if (thesisWrappers.textContent !== fullText) {
-                    thesisWrappers.textContent = fullText;
-                    if (thesisWrappers.textContent.split(" ").length > wordlimit - 1) {
-                        thesisWrappers.textContent = thesisWrappers.textContent.split(/\s+/).slice(0, wordlimit).join(" ") + " (...)";
-                    }
-                }
-            }
+    //             //If thesisWrappers.textContent has already been truncated, reset it back to its orginal value, and then cut it at wordlimit
+    //             else if (thesisWrappers.textContent !== fullText) {
+    //                 thesisWrappers.textContent = fullText;
+    //                 if (thesisWrappers.textContent.split(" ").length > wordlimit - 1) {
+    //                     thesisWrappers.textContent = thesisWrappers.textContent.split(/\s+/).slice(0, wordlimit).join(" ") + " (...)";
+    //                 }
+    //             }
+    //         }
         
-            //If the window is bigger than 850
-            if (window.innerWidth > 850) {
+    //         //If the window is bigger than 850
+    //         if (window.innerWidth > 850) {
 
-                console.log("window is big")
+    //             console.log("window is big")
 
-                //If thesisWrappers contains more items than wordlimit, truncate it at largerwordlimit
-                if (thesisWrappers.textContent.split(" ").length > largerwordlimit - 1) {
-                    thesisWrappers.textContent = thesisWrappers.textContent.split(/\s+/).slice(0, largerwordlimit).join(" ") + " (...)";
-                }
+    //             //If thesisWrappers contains more items than wordlimit, truncate it at largerwordlimit
+    //             if (thesisWrappers.textContent.split(" ").length > largerwordlimit - 1) {
+    //                 thesisWrappers.textContent = thesisWrappers.textContent.split(/\s+/).slice(0, largerwordlimit).join(" ") + " (...)";
+    //             }
                 
-                //If thesisWrappers.textContent has already been truncated, reset it back to its orginal value, and then cut it at largerwordlimit
-                else if (thesisWrappers.textContent !== fullText) {
-                    thesisWrappers.textContent = fullText;
-                    if (thesisWrappers.textContent.split(" ").length > largerwordlimit - 1) {
-                        thesisWrappers.textContent = thesisWrappers.textContent.split(/\s+/).slice(0, largerwordlimit).join(" ") + " (...)";
-                    }
-                }
+    //             //If thesisWrappers.textContent has already been truncated, reset it back to its orginal value, and then cut it at largerwordlimit
+    //             else if (thesisWrappers.textContent !== fullText) {
+    //                 thesisWrappers.textContent = fullText;
+    //                 if (thesisWrappers.textContent.split(" ").length > largerwordlimit - 1) {
+    //                     thesisWrappers.textContent = thesisWrappers.textContent.split(/\s+/).slice(0, largerwordlimit).join(" ") + " (...)";
+    //                 }
+    //             }
 
 
 
 
-            }
+    //         }
           
-        })
-      })
+    //     })
+    //   })
       
     
 

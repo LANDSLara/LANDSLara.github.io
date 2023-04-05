@@ -24,8 +24,8 @@ body {}
 
 body {
     overflow: hidden;
-    font-size: 12px;
-    line-height: 13px;
+    font-size: 0.9em;
+    line-height: 1.1em;
     color: var(--main-font-color);
     background: var(--main-background-color);
 }
@@ -131,6 +131,22 @@ main {
     opacity: 1;
     color: var(--main-highlight-color);
 }
+
+.thesisDescription {
+    display:-webkit-inline-box;
+  }
+
+.thesisDescription p{
+    margin:0;
+    padding:0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 75ch;
+}
+
+
+
 
 .creatorInfo {
     position: absolute;
